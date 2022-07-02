@@ -11,7 +11,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'react-hooks', 'prettier'],
   rules: {
     'prefer-rest-params': 0, // 关闭使用 rest 参数
     '@typescript-eslint/consistent-type-imports': 'error', // 当只引用类型时，自动加上 type 操作符
@@ -20,5 +20,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 0,
     'prettier/prettier': 'error', // 被prettier标记的地方抛出错误
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
+    'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
   },
 }

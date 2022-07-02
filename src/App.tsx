@@ -4,7 +4,7 @@
  * @Date 2022-05-01
  */
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HomeIndex from './home'
+import HomeIndex from './view'
 export default () => {
   return (
     <BrowserRouter>
