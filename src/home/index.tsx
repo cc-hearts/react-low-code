@@ -1,3 +1,8 @@
+import Login from '../pages/login'
 export default function HomeIndex() {
-  return <>home</>
+  return (
+    <>
+      <Login />
+    </>
+  )
 }

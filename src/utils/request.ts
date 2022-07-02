@@ -3,8 +3,10 @@
  * @description 网络请求接口
  * @Date 2022-07-01
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API
- *
+ * @see https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html
  */
+
+import { objectToParams } from './index'
 enum requestType {
   GET = 'GET',
   POST = 'POST',
@@ -24,13 +26,31 @@ interface requestParams {
   code: string | number
 }
 
+// type requestBodyType = ArrayBuffer | Blob | FormData | string | Record<string, any>
+
 const baseUrl = 'http://localhost:4000/'
+
+function isSpecifyResponseType(contentType: string, reg: RegExp): boolean {
+  return reg.test(contentType)
+}
+// TODO: Blob ArrayBuffer formData 的判断
+// function isResponseText(contentType: string): boolean {
+//   return isSpecifyResponseType(contentType, /text\/html/)
+// }
+
+function isResponseJson(contentType: string): boolean {
+  return isSpecifyResponseType(contentType, /application\/json/)
+}
 
 function request<T extends responseType>(url = '', data: RequestInit = { method: 'GET' }): Promise<T> {
   const pathUrl = baseUrl + url
   return new Promise((resolve, reject) => {
     fetch(pathUrl, data)
       .then((response) => {
+        const ContentType = response.headers.get('content-type') || ''
+        if (isResponseJson(ContentType)) {
+          return response.json()
+        }
         return response.text()
       })
       .then((jsonData) => {
@@ -46,9 +66,8 @@ function request<T extends responseType>(url = '', data: RequestInit = { method:
           }
         } catch (e) {
           // string
-          const val: T = jsonData as T
-          console.log(pathUrl, val, e)
-          resolve(val)
+          console.log(pathUrl, jsonData, e)
+          resolve(jsonData)
         }
       })
       .catch((e) => {
@@ -62,13 +81,13 @@ function requestMethod<T>(url: string, type: requestType, data: RequestInit): Pr
 }
 
 export function Get<T extends responseType = defaultType>(url: string, params?: params, data: RequestInit = {}): Promise<T> {
-  // url 拼接
-  return requestMethod(url, requestType.GET, data)
+  const enCodeParams = objectToParams(params)
+  const fullPath = url + `?${enCodeParams}`
+  return requestMethod(fullPath, requestType.GET, data)
 }
 
 function postRequest<T>(url: string, data: RequestInit = {}, ContentType?: postType): Promise<T> {
-  const headers = Object.assign({}, data.headers || {}, { 'Content-Type': ContentType })
-  data.headers = headers
+  data.headers = Object.assign({}, data.headers || {}, { 'Content-Type': ContentType })
   return request(url, Object.assign({ method: requestType.POST }, data))
 }
 

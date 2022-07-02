@@ -1,0 +1,125 @@
+.login-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  .login-container {
+    min-width: 1120px;
+    height: 700px;
+    margin: auto;
+    background-color: #b1d9db;
+    box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.login-wrapper-left {
+  box-sizing: border-box;
+  height: 100%;
+  width: 730px;
+  background-color: #fffefe;
+  position: absolute;
+  right: -59px;
+  padding-right: 118px;
+  padding-left: 172px;
+  border-radius: 41px;
+}
+
+.login-title {
+  margin: 106px 0 0;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.login-wrapper-form {
+  margin-top: 138px;
+
+  input {
+    height: 31px;
+    width: 405px;
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 43px;
+    transition: all 0.3s ease-out;
+
+    &::placeholder {
+      transition: all 0.3s ease-out;
+      color: #adaaaa;
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-bottom-color: #b1d9db;
+      color: #b1d9db;
+
+      &::placeholder {
+        color: #b1d9db;
+      }
+    }
+  }
+}
+
+.login-submit {
+  margin-top: 22px;
+  font-size: 18px;
+  text-align: center;
+
+  button {
+    color: #fff;
+    padding: 15px 90px;
+    background-color: #0fb3bb;
+    border: none;
+    border-radius: 16px;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #258f95;
+    }
+  }
+}
+
+.login-footer {
+  margin-top: 20px;
+  color: #adaaaa;
+  text-align: center;
+
+  a {
+    color: #0fb3bb;
+    cursor: pointer;
+  }
+}
+
+.login-wrapper-right {
+  height: 100%;
+  position: absolute;
+}
+
+.right-bgc {
+  width: 480px;
+  height: 514px;
+  position: absolute;
+  bottom: -54px;
+  transform: translate(35px, 10px) rotate(352deg);
+  z-index: 2;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.logo {
+  width: 53px;
+  height: 28px;
+  position: absolute;
+  left: 21px;
+  top: 31px;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
