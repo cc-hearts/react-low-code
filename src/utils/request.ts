@@ -76,31 +76,35 @@ function request<T extends responseType>(url = '', data: RequestInit = { method:
   })
 }
 
-function requestMethod<T>(url: string, type: requestType, data: RequestInit): Promise<T> {
-  return request(url, Object.assign({ method: type }, data))
+function requestMethod<T>(url: string, type: requestType, requestInit: RequestInit): Promise<T> {
+  return request(url, Object.assign({ method: type }, requestInit))
 }
 
-export function Get<T extends responseType = defaultType>(url: string, params?: params, data: RequestInit = {}): Promise<T> {
+export function Get<T extends responseType = defaultType>(url: string, params?: params, requestInit: RequestInit = {}): Promise<T> {
   const enCodeParams = objectToParams(params)
   const fullPath = url + `?${enCodeParams}`
-  return requestMethod(fullPath, requestType.GET, data)
+  return requestMethod(fullPath, requestType.GET, requestInit)
 }
 
-function postRequest<T>(url: string, data: RequestInit = {}, ContentType?: postType): Promise<T> {
-  data.headers = Object.assign({}, data.headers || {}, { 'Content-Type': ContentType })
-  return request(url, Object.assign({ method: requestType.POST }, data))
+function postRequest<T>(url: string, requestInit: RequestInit = {}, ContentType?: postType): Promise<T> {
+  requestInit.headers = Object.assign({}, requestInit.headers || {}, { 'Content-Type': ContentType })
+  return request(url, Object.assign({ method: requestType.POST }, requestInit))
 }
 
-export function Post<T extends responseType = defaultType>(url: string, params?: params, data: RequestInit = {}): Promise<T> {
-  data.body = JSON.stringify(params)
-  return postRequest(url, data, 'application/json')
+export function Post<T extends responseType = defaultType>(url: string, params?: params, requestInit: RequestInit = {}): Promise<T> {
+  try {
+    requestInit.body = JSON.stringify(params)
+  } catch (err) {
+    console.log('Post params error:', err)
+  }
+  return postRequest(url, requestInit, 'application/json')
 }
 
-export function FormDataPost<T extends responseType = defaultType>(url: string, params?: params, data: RequestInit = {}): Promise<T> {
+export function FormDataPost<T extends responseType = defaultType>(url: string, params?: params, requestInit: RequestInit = {}): Promise<T> {
   // formData形式
-  return postRequest(url, data, 'application/x-www-form-urlencoded')
+  return postRequest(url, requestInit, 'application/x-www-form-urlencoded')
 }
-export function MultiPost<T extends responseType = defaultType>(url: string, params?: params, data: RequestInit = {}): Promise<T> {
+export function MultiPost<T extends responseType = defaultType>(url: string, params?: params, requestInit: RequestInit = {}): Promise<T> {
   // new FormData形式
-  return postRequest(url, data, 'application/x-www-form-urlencoded')
+  return postRequest(url, requestInit, 'application/x-www-form-urlencoded')
 }

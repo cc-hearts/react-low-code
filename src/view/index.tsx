@@ -1,8 +1,5 @@
-import Login from '../pages/login'
-export default function HomeIndex() {
-  return (
-    <>
-      <Login />
-    </>
-  )
+const View = () => {
+  return <></>
 }
+
+export default View

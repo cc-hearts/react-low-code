@@ -1,7 +1,8 @@
 import type { loginForm } from './useLoginForm'
 import { clearObjectValue } from '../../../utils/index'
 import { Post } from '../../../utils/request'
-export function useLoginSubmit(form: loginForm, setForm: (...rest: any[]) => void) {
+import type { NavigateFunction } from 'react-router-dom'
+export function loginSubmit(form: loginForm, setForm: (...rest: any[]) => void, toPath: NavigateFunction) {
   Post('post', form)
     .then((res) => {
       setForm(clearObjectValue(res))
@@ -9,4 +10,5 @@ export function useLoginSubmit(form: loginForm, setForm: (...rest: any[]) => voi
     .catch((e) => {
       console.log(e)
     })
+  toPath('/home')
 }

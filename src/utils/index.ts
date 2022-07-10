@@ -35,3 +35,13 @@ export function clearObjectValue(obj: Record<string, any>): Record<string, any> 
 
   return tempObj
 }
+
+export const isValidJSON = (string: string): boolean => {
+  try {
+    JSON.parse(string)
+    return true
+  } catch (err) {
+    console.log(err)
+    return false
+  }
+}

@@ -1,9 +1,14 @@
 import LoginFooter from './loginFooter'
-import { useLoginSubmit } from './hook/useSubmit'
+import { loginSubmit } from './hook/useSubmit'
 import { useLoginForm } from './hook/useLoginForm'
 import { inputField } from './constants'
+
+import { useNavigate } from 'react-router-dom'
+
 const LoginForm = () => {
   const [loginForm, changeLoginForm] = useLoginForm()
+
+  const navigate = useNavigate()
   return (
     <div className='login-wrapper-left'>
       <div className='login-title'>Create Account</div>
@@ -24,7 +29,7 @@ const LoginForm = () => {
       <div className='login-submit'>
         <button
           onClick={() => {
-            useLoginSubmit(loginForm, changeLoginForm)
+            loginSubmit(loginForm, changeLoginForm, navigate)
           }}
         >
           Create Account
