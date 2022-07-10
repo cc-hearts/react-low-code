@@ -29,10 +29,10 @@ const useCommonRef = () => {
           console.log(ref)
         }}
       >
-        get ref
+        打印普通ref
       </button>
       {/* 透传text 但是不能透传ref */}
-      <FactoryButton ref={ref} text='第一个测试' />
+      <FactoryButton ref={ref} text='common ref' />
     </>
   )
 }
