@@ -12,6 +12,9 @@ import Reducer from './view/hooks/useReducer'
 import Callback from './view/hooks/useCallback'
 import Memo from './view/hooks/useMemo'
 import Effect from './view/hooks/useEffect'
+import ImperativeHandle from './view/hooks/useImperativeHandle'
+import Scroll from './pages/scroll/index'
+
 export default () => {
   return (
     <BrowserRouter>
@@ -25,6 +28,8 @@ export default () => {
           <Route path='callback' element={<Callback />} />
           <Route path='memo' element={<Memo />} />
           <Route path='effect' element={<Effect />} />
+          <Route path='ImperativeHandle' element={<ImperativeHandle />} />
+          <Route path='scroll' element={<Scroll />} />
         </Route>
       </Routes>
     </BrowserRouter>
