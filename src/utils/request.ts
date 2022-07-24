@@ -56,7 +56,7 @@ function request<T extends responseType>(url = '', data: RequestInit = { method:
       .then((jsonData) => {
         // 全局状态判断
         try {
-          const val: T & requestParams = JSON.parse(jsonData)
+          const val: T & requestParams = jsonData
           // 判断状态码
           if (val.code === 200) {
             resolve(val)

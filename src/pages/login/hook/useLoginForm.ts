@@ -14,5 +14,9 @@ export function useLoginForm() {
       return { ...val }
     })
   }
-  return [loginForm, changeLoginForm] as const
+
+  function clearLoginForm(form: loginForm) {
+    setLoginForm(form)
+  }
+  return [loginForm, changeLoginForm, clearLoginForm] as const
 }

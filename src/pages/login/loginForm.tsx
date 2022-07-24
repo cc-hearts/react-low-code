@@ -6,9 +6,10 @@ import { inputField } from './constants'
 import { useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
-  const [loginForm, changeLoginForm] = useLoginForm()
+  const [loginForm, changeLoginForm, clearLoginForm] = useLoginForm()
 
   const navigate = useNavigate()
+
   return (
     <div className='login-wrapper-left'>
       <div className='login-title'>Create Account</div>
@@ -29,7 +30,7 @@ const LoginForm = () => {
       <div className='login-submit'>
         <button
           onClick={() => {
-            loginSubmit(loginForm, changeLoginForm, navigate)
+            loginSubmit(loginForm, clearLoginForm, navigate)
           }}
         >
           Create Account

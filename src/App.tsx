@@ -14,7 +14,7 @@ import Memo from './view/hooks/useMemo'
 import Effect from './view/hooks/useEffect'
 import ImperativeHandle from './view/hooks/useImperativeHandle'
 import Scroll from './pages/scroll/index'
-
+import TwoBalls from './pages/loading/twoBalls'
 export default () => {
   return (
     <BrowserRouter>
@@ -30,6 +30,7 @@ export default () => {
           <Route path='effect' element={<Effect />} />
           <Route path='ImperativeHandle' element={<ImperativeHandle />} />
           <Route path='scroll' element={<Scroll />} />
+          <Route path='twoBalls' element={<TwoBalls />} />
         </Route>
       </Routes>
     </BrowserRouter>
