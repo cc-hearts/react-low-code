@@ -12,22 +12,23 @@
 .red-ball {
   background-color: #ff4a69;
   transform: translate(-50%);
-  animation: red-rotate .88s linear infinite;
+  animation: red-rotate 0.98s linear infinite;
 }
 
 .blue-ball {
   background-color: #1342ed;
   transform: translate(50%);
-  animation: blue-rotate .88s linear infinite;
+  animation: blue-rotate 0.98s linear infinite;
 }
 
 .mask-wrapper {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: absolute;
+  filter: blur(3px);
+  background-color: rgb(0 0 0 / 10%);
+  z-index: 1000;
 }
-
-
 
 @keyframes red-rotate {
   0% {
@@ -61,4 +62,11 @@
     transform: translate(80%);
     z-index: 1;
   }
+}
+
+
+.loading-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
 }

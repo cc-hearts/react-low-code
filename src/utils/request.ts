@@ -10,7 +10,7 @@ import { objectToParams } from './index'
 enum requestType {
   GET = 'GET',
   POST = 'POST',
-  PUT = 'POST',
+  PUT = 'PUT',
   DELETE = 'DELETE',
 }
 
@@ -106,5 +106,5 @@ export function FormDataPost<T extends responseType = defaultType>(url: string, 
 }
 export function MultiPost<T extends responseType = defaultType>(url: string, params?: params, requestInit: RequestInit = {}): Promise<T> {
   // new FormData形式
-  return postRequest(url, requestInit, 'application/x-www-form-urlencoded')
+  return postRequest(url, requestInit, 'multipart/form-data')
 }

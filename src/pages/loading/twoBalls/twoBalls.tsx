@@ -9,9 +9,10 @@ import './twoBalls.less'
 const loading = () => {
   return (
     <>
-      <div className='mask-wrapper'>
+      <div className='loading-wrapper'>
         <div className='red-ball'></div>
         <div className='blue-ball'></div>
+        <div className='mask-wrapper'></div>
       </div>
     </>
   )
