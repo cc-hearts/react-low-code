@@ -17,15 +17,16 @@
   background-color: var(--ball-color);
   position: absolute;
   animation: ball-down 0.48s ease infinite;
+  left: -50px;
 
   &:nth-of-type(2) {
-    left: 50px;
+    left: 0;
     animation: ball-down 0.48s ease infinite;
     animation-delay: 0.1s;
   }
 
   &:nth-of-type(3) {
-    left: 100px;
+    left: 50px;
     animation: ball-down 0.48s ease infinite;
     animation-delay: 0.2s;
   }
@@ -41,15 +42,16 @@
   filter: blur(2px);
   background-color: rgba(0 0 0 / 40%);
   animation: shadow-down 0.48s ease infinite;
+  left: -50px;
 
   &:nth-of-type(5) {
-    left: 50px;
     animation: shadow-down 0.48s ease infinite;
     animation-delay: 0.1s;
+    left: 0;
   }
 
   &:nth-of-type(6) {
-    left: 100px;
+    left: 50px;
     animation: shadow-down 0.48s ease infinite;
     animation-delay: 0.2s;
   }
