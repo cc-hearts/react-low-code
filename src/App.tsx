@@ -16,6 +16,7 @@ import ImperativeHandle from './view/hooks/useImperativeHandle'
 import Scroll from './pages/scroll/index'
 import TwoBalls from './pages/loading/twoBalls/twoBalls'
 import ThreeBalls from './pages/loading/threeBalls/index'
+import CanvasDemo from './pages/canvas'
 export default () => {
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ export default () => {
           <Route path='scroll' element={<Scroll />} />
           <Route path='twoBalls' element={<TwoBalls />} />
           <Route path='threeBalls' element={<ThreeBalls />} />
+          <Route path='canvasDemo' element={<CanvasDemo />} />
         </Route>
       </Routes>
     </BrowserRouter>
