@@ -17,6 +17,8 @@ import Scroll from './pages/scroll/index'
 import TwoBalls from './pages/loading/twoBalls/twoBalls'
 import ThreeBalls from './pages/loading/threeBalls/index'
 import CanvasDemo from './pages/canvas'
+import GluttonousLoading from './pages/loading/gluttonous'
+import TicTacToeClass from './pages/ticTacToe/class/index'
 export default () => {
   return (
     <BrowserRouter>
@@ -35,6 +37,8 @@ export default () => {
           <Route path='twoBalls' element={<TwoBalls />} />
           <Route path='threeBalls' element={<ThreeBalls />} />
           <Route path='canvasDemo' element={<CanvasDemo />} />
+          <Route path='gluttonous' element={<GluttonousLoading />} />
+          <Route path='tictacToeClass' element={<TicTacToeClass />} />
         </Route>
       </Routes>
     </BrowserRouter>

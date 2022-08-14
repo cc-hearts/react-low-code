@@ -4,15 +4,16 @@
  * @Date 2022-07-24
  */
 
-import React from 'react'
-import './twoBalls.less'
+import Less from './twoBalls.module.less'
 const loading = () => {
   return (
     <>
-      <div className='loading-wrapper'>
-        <div className='red-ball'></div>
-        <div className='blue-ball'></div>
-        <div className='mask-wrapper'></div>
+      <div className={Less['loading-wrapper']}>
+        <div className={Less['loading']}>
+          <div className={Less['red-ball']}></div>
+          <div className={Less['blue-ball']}></div>
+          <div className={Less['mask-wrapper']}></div>
+        </div>
       </div>
     </>
   )
