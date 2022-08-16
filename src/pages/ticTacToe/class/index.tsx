@@ -161,7 +161,7 @@ export default class Game extends React.Component<
 
         <div>
           {/* 这里展示 当前落子的是哪一方 如果胜利 显示胜利方 */}
-          {/* xIsNext 表示的下一个个的子 如果胜利的话 显示当前的子就行 */}
+          {/* xIsNext 表示的下一个落子 如果胜利的话 显示当前的子就行 */}
           <div>{winner ? 'winner' + (xIsNext ? 'O' : 'X') : 'Next player:' + (xIsNext ? 'X' : 'O')}</div>
           {/* 这里要展示history的值 功能是可以回到过去 */}
           {history.map((step, move) => {

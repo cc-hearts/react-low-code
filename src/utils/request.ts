@@ -76,7 +76,7 @@ function request<T extends responseType>(url = '', data: RequestInit = { method:
   })
 }
 
-function requestMethod<T>(url: string, type: requestType, requestInit: RequestInit): Promise<T> {
+function requestMethod<T extends responseType>(url: string, type: requestType, requestInit: RequestInit): Promise<T> {
   return request(url, Object.assign({ method: type }, requestInit))
 }
 
@@ -86,7 +86,7 @@ export function Get<T extends responseType = defaultType>(url: string, params?: 
   return requestMethod(fullPath, requestType.GET, requestInit)
 }
 
-function postRequest<T>(url: string, requestInit: RequestInit = {}, ContentType?: postType): Promise<T> {
+function postRequest<T extends responseType>(url: string, requestInit: RequestInit = {}, ContentType?: postType): Promise<T> {
   requestInit.headers = Object.assign({}, requestInit.headers || {}, { 'Content-Type': ContentType })
   return request(url, Object.assign({ method: requestType.POST }, requestInit))
 }
