@@ -1,7 +1,7 @@
 import { useNamespace } from "@/hooks/useNamespace"
 import '@/assets/scss/components/headers.scss'
 import classnames from 'classnames'
-
+import GithubIcon from "@/icons/GithubIcon"
 interface IProps {
   title?: () => React.ReactNode
   right?: () => React.ReactNode
@@ -15,6 +15,7 @@ function Header(props: IProps) {
     {props.title?.() || <div></div>}
     <div className={headerOperationPane}>
       {rightSlot}
+      <GithubIcon />
     </div>
   </header>
 }
