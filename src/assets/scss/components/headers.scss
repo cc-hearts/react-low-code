@@ -1,0 +1,33 @@
+@use '@/assets/scss/var/variable.scss' as *;
+@use '@/assets/scss/common/mixins.scss' as *;
+
+@include b('header') {
+  --header-shadow: rgb(229, 230, 235);
+  height: 48px;
+  box-shadow: 0 1px 0 var(--header-shadow);
+
+  &__icon {
+    color: var(--color-text-2);
+
+    &>div,
+    &>button,
+    &>svg {
+      margin: 0 0.5rem;
+    }
+
+    svg {
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-text-1);
+      }
+    }
+  }
+}
+
+.dark {
+  @include b('header') {
+    --header-shadow: rgb(72, 72, 73);
+  }
+}
