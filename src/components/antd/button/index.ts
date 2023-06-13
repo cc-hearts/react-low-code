@@ -1,10 +1,10 @@
 import { default as _Button } from './button'
-import { MaterialTypeProvider } from '@/types'
 import { mapMaterial } from '@/utils/mapper/mapMaterial'
-const Button:MaterialTypeProvider<typeof _Button> = _Button
+import { MaterialSymbolsSmartButtonSharp } from './buttonIcons'
 
-
-mapMaterial(_Button,{
+export const Button = mapMaterial(_Button,{
   displayName: 'Button',
+  type: 'button',
+  icon: MaterialSymbolsSmartButtonSharp,
+  group: 'base',
 })
-export default Button

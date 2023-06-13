@@ -5,3 +5,14 @@
 @include b('control-pane') {
   box-shadow: 1px 0 6px 0 var(--shadow-1);
 }
+
+@include b('control-tab') {
+  &>div {
+    transition: box-shadow, color .3s;
+
+    &:hover {
+      color: var(--color-active);
+      box-shadow: 0 0 6px var(--shadow-1);
+    }
+  }
+}
