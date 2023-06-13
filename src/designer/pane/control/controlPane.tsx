@@ -1,9 +1,11 @@
-
-function controlPane() {
-
-  return <div className="w-40">
-  controlPane
+import { useNamespace } from "@/hooks"
+import classNames from "classnames"
+import '@/assets/scss/designer/pane/control/control-pane.scss'
+function ControlPane() {
+  const ns = useNamespace('control-pane')
+  const cls = classNames(ns.cls, 'w-40')
+  return <div className={cls}>
   </div>
 }
 
-export default controlPane
+export default ControlPane

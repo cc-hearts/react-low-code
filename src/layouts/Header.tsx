@@ -9,11 +9,11 @@ interface IProps {
 function Header(props: IProps) {
   const ns = useNamespace('header')
   const titleClassNames = classnames(ns.cls, 'flex justify-between items-center px-3')
-  const headerOperationPane = classnames(ns.e('icon'),'flex text-2xl items-center')
+  const headerOperationPaneClassNames = classnames(ns.e('icon'),'flex text-2xl items-center')
   const rightSlot = props.right?.() || <></>
   return <header className={titleClassNames}>
     {props.title?.() || <div></div>}
-    <div className={headerOperationPane}>
+    <div className={headerOperationPaneClassNames}>
       {rightSlot}
       <GithubIcon />
     </div>
