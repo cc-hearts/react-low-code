@@ -1,14 +1,13 @@
 @use '@/assets/scss/var/variable.scss' as *;
 @use '@/assets/scss/common/mixins.scss' as *;
 
-
 @include b('control-pane') {
   box-shadow: 1px 0 6px 0 var(--shadow-1);
 }
 
 @include b('control-tab') {
-  &>div {
-    transition: box-shadow, color .3s;
+  & > div {
+    transition: box-shadow, color 0.3s;
 
     &:hover {
       color: var(--color-active);

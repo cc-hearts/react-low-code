@@ -1,4 +1,4 @@
-import WorkBench from "./designer/pane/workBench"
+import WorkBench from './designer/pane/workBench'
 function App() {
   return <WorkBench></WorkBench>
 }

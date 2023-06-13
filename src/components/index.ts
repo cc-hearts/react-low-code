@@ -1,7 +1,9 @@
 import * as Components from './antd'
-import type { MaterialType } from '@/types';
+import type { MaterialType } from '@/types'
 
-export const materialList = Object.values(Components).reduce<{ [key: string]: MaterialType[] }>((acc,cur) => {
+export const materialList = Object.values(Components).reduce<{
+  [key: string]: MaterialType[]
+}>((acc, cur) => {
   const _view = Reflect.get(cur, '_view')
   if (_view) {
     const materialGroupName = Reflect.get(_view, 'group')

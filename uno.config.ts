@@ -8,5 +8,4 @@ export default defineConfig({
     presetUno(),
     // ...custom presets
   ],
-  
 })
