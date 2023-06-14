@@ -15,6 +15,11 @@ export interface MaterialType {
   group: string
 
   /**
+   * @name scehma props
+   */
+  props?: Record<string, any>
+
+  /**
    * icon
    */
   icon: string | React.FC

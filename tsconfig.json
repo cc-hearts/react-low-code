@@ -22,7 +22,7 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "global.d.ts"],
+  "include": ["src", "global.d.ts", "src/utils"],
   "references": [
     {
       "path": "./tsconfig.node.json"

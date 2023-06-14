@@ -9,8 +9,8 @@ const Droppable: React.FC<IProps> = ({ children }) => {
     id: '',
   })
   const cls = classNames(
-    isOver ? 'border border-dashed border-sky-500' : '',
-    'h-full box-border'
+    isOver ? 'border-sky-500' : 'border-gray-300',
+    'h-full box-border border-dashed  border'
   )
   return (
     <div className={cls} ref={setNodeRef}>
