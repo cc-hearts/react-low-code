@@ -18,6 +18,7 @@ export interface MaterialType {
    * @name scehma props
    */
   attributes?: {
+    label?: string
     props?: Record<string, any>
   }
 

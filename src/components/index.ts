@@ -7,7 +7,7 @@ export const materialList = Object.values(Components).reduce<{
   const _view = Reflect.get(cur, '_view')
   if (_view) {
     const materialGroupName = Reflect.get(_view, 'group')
-    let materialGroup = Reflect.get(cur, materialGroupName)
+    let materialGroup = Reflect.get(acc, materialGroupName)
     if (!materialGroup) {
       materialGroup = []
       Reflect.set(acc, materialGroupName, materialGroup)
@@ -17,5 +17,6 @@ export const materialList = Object.values(Components).reduce<{
   return acc
 }, {})
 
+console.log(Components);
 
 export default Components
