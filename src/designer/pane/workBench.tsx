@@ -11,13 +11,15 @@ function WorkBench() {
 
   const [schema, setSchema] = useState({} as Record<string,MaterialType>)
   function handleOnDragEnd(over: DragEndEvent) {
-    const cur = over.active.data.current
-    let uuid = defineUUID()
-    while(Reflect.get(schema, uuid)) {
-      uuid = defineUUID()
+    if(over?.over?.id === 'viewPane') {
+      const cur = over.active.data.current
+      let uuid = defineUUID()
+      while(Reflect.get(schema, uuid)) {
+        uuid = defineUUID()
+      }
+      Reflect.set(schema, uuid, cur)
+      setSchema({...schema})
     }
-    Reflect.set(schema, uuid, cur)
-    setSchema({...schema})
   }
 
   return (

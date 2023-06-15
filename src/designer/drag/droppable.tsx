@@ -6,7 +6,7 @@ interface IProps {
 }
 const Droppable: React.FC<IProps> = ({ children }) => {
   const { isOver, setNodeRef } = useDroppable({
-    id: '',
+    id: 'viewPane',
   })
   const cls = classNames(
     isOver ? 'border-sky-500' : 'border-gray-300',
