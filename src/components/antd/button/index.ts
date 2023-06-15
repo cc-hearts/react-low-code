@@ -4,7 +4,12 @@ import { MaterialSymbolsSmartButtonSharp } from './buttonIcons'
 
 export const Button = mapMaterial(_Button, {
   displayName: 'Button',
-  type: 'button',
+  type: 'Button',
   icon: MaterialSymbolsSmartButtonSharp,
   group: 'base',
+  attributes: {
+    props: {
+      text: 'button',
+    }
+  }
 })

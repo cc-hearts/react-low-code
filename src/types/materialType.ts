@@ -17,7 +17,9 @@ export interface MaterialType {
   /**
    * @name scehma props
    */
-  props?: Record<string, any>
+  attributes?: {
+    props?: Record<string, any>
+  }
 
   /**
    * icon
@@ -27,4 +29,10 @@ export interface MaterialType {
    * placeholder
    */
   [key: string]: unknown
+}
+
+export interface RenderSchema {
+    Component: React.FC<any>;
+    attribute?: MaterialType['attributes'];
+    uuid: string
 }

@@ -16,3 +16,6 @@ export const materialList = Object.values(Components).reduce<{
   }
   return acc
 }, {})
+
+
+export default Components

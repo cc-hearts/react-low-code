@@ -17,7 +17,7 @@ const ComponentTab: React.FC<{ materialGroup: Array<MaterialType> }> = ({
         const Icons =
           typeof material.icon === 'string' ? () => <></> : material.icon
         return (
-          <Draggable key={material.type} id={material.type}>
+          <Draggable key={material.type} id={material.type} material={material}>
             <div
               className={classNames(
                 'h-15 flex flex-col items-center cursor-pointer'
