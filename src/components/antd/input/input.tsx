@@ -1,5 +1,4 @@
-
-import { Input as AntdInput } from "antd"
+import { Input as AntdInput } from 'antd'
 const Input: React.FC = () => {
   return <AntdInput></AntdInput>
 }

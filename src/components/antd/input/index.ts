@@ -9,5 +9,5 @@ export const Input = mapMaterial(_Input, {
   group: 'base',
   attributes: {
     label: 'input',
-  }
+  },
 })

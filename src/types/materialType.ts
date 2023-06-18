@@ -33,7 +33,7 @@ export interface MaterialType {
 }
 
 export interface RenderSchema {
-    Component: React.FC<any>;
-    attribute?: MaterialType['attributes'];
-    uuid: string
+  Component: React.FC<any>
+  attribute?: MaterialType['attributes']
+  uuid: string
 }

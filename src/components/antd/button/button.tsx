@@ -1,9 +1,7 @@
-import { Button as AntdButton } from "antd"
-function Button({props = {}}: any) {
+import { Button as AntdButton } from 'antd'
+function Button({ props = {} }: any) {
   const { text } = props
-  return <AntdButton>
-    { text }
-  </AntdButton>
+  return <AntdButton>{text}</AntdButton>
 }
 
 export default Button

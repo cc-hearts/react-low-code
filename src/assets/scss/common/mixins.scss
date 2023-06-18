@@ -9,9 +9,7 @@ $m: null;
     @at-root {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @content;
   }
 }
@@ -29,7 +27,10 @@ $m: null;
   $currentSelector: '';
 
   @each $item in $element {
-    $currentSelector: #{$currentSelector}+'.'(+#{$e})+#{$element-separator}+#{$item}+',';
+    $currentSelector: #{$currentSelector}+
+      '.'
+      (+#{$e}) +#{$element-separator}+#{$item}+
+      ',';
   }
 
   @include isAtRoot {
@@ -44,7 +45,9 @@ $m: null;
   $currentSelector: '';
 
   @each $unit in $modify {
-    $currentSelector: #{$currentSelector}+'.'+#{$m}+#{$modifier-separator}+#{$unit}+',';
+    $currentSelector: #{$currentSelector}+
+      '.' +#{$m}+#{$modifier-separator}+#{$unit}+
+      ',';
   }
 
   @include isAtRoot {

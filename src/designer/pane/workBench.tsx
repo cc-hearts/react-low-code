@@ -8,17 +8,16 @@ import { useState } from 'react'
 import { defineUUID } from '@/utils/crypto'
 import { MaterialType } from '@/types'
 function WorkBench() {
-
-  const [schema, setSchema] = useState({} as Record<string,MaterialType>)
+  const [schema, setSchema] = useState({} as Record<string, MaterialType>)
   function handleOnDragEnd(over: DragEndEvent) {
-    if(over?.over?.id === 'viewPane') {
+    if (over?.over?.id === 'viewPane') {
       const cur = over.active.data.current
       let uuid = defineUUID()
-      while(Reflect.get(schema, uuid)) {
+      while (Reflect.get(schema, uuid)) {
         uuid = defineUUID()
       }
       Reflect.set(schema, uuid, cur)
-      setSchema({...schema})
+      setSchema({ ...schema })
     }
   }
 

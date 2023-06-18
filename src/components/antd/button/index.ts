@@ -10,6 +10,6 @@ export const Button = mapMaterial(_Button, {
   attributes: {
     props: {
       text: 'button',
-    }
-  }
+    },
+  },
 })
