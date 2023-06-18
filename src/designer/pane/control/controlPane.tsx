@@ -4,6 +4,7 @@ import { materialList } from '@/components/index'
 import { MaterialType } from '@/types'
 import ControlIcons from './controlIcons'
 import { Draggable } from '@/designer/drag'
+import { ComponentNode } from './componentNode'
 import '@/assets/scss/designer/pane/control/control-pane.scss'
 
 const ComponentTab: React.FC<{ materialGroup: Array<MaterialType> }> = ({
@@ -18,18 +19,7 @@ const ComponentTab: React.FC<{ materialGroup: Array<MaterialType> }> = ({
           typeof material.icon === 'string' ? () => <></> : material.icon
         return (
           <Draggable key={material.type} id={material.type} material={material}>
-            <div
-              className={classNames(
-                'h-15 flex flex-col items-center cursor-pointer'
-              )}
-            >
-              <div className="flex-1 flex items-center">
-                <ControlIcons component={Icons} />
-              </div>
-              <span className="h-5 w-full text-center leading-4 ">
-                {material.displayName}
-              </span>
-            </div>
+            <ComponentNode Icon={Icons} displayName={material.displayName} />
           </Draggable>
         )
       })}

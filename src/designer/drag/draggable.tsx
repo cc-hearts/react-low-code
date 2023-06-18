@@ -9,21 +9,16 @@ interface IProps {
   material?: MaterialType
 }
 const Draggable: React.FC<IProps> = (props) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  const { attributes, listeners, setNodeRef } = useDraggable({
     id: props.id,
     data: props.material || {},
   })
-
-  const style = {
-    transform: CSS.Translate.toString(transform),
-  }
 
   return (
     <div
       ref={setNodeRef}
       {...listeners}
       {...attributes}
-      style={style}
       className="show-layout"
     >
       {props.children}
