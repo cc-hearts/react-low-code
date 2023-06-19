@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@cc-heart/eslint-config':
     specifier: ^0.0.10
@@ -7,6 +11,9 @@ dependencies:
   '@cc-heart/gen-index-export':
     specifier: ^0.1.0
     version: 0.1.0
+  '@cc-heart/utils':
+    specifier: ^2.0.17
+    version: 2.0.17
   '@dnd-kit/core':
     specifier: ^6.0.8
     version: 6.0.8(react-dom@18.2.0)(react@18.2.0)
@@ -353,16 +360,16 @@ packages:
     dependencies:
       '@babel/parser': 7.22.5
       '@babel/traverse': 7.22.5
-      '@cc-heart/utils': 2.0.15
+      '@cc-heart/utils': 2.0.17
       glob: 9.3.5
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@cc-heart/utils@2.0.15:
+  /@cc-heart/utils@2.0.17:
     resolution:
       {
-        integrity: sha512-8SoWqYkWqRfDV0Pjfns2qmOWE2SkQTNqSoKrxiljx517//A+9JCUivfdx7tp9Hm42q9Nd71E1BZwUQeu0dZzHQ==,
+        integrity: sha512-PIC2Suhi2o/NggdJUkaq+AQmsw4rrjZLjxqtvcw9HsDD4ch1BRNIrmfR4CPe1R6ricmT2U3xQrkiix2bHUeBQw==,
       }
     dev: false
 

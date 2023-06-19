@@ -26,6 +26,8 @@ export interface MaterialType {
    * icon
    */
   icon: string | React.FC
+
+  uuid: string
   /**
    * placeholder
    */

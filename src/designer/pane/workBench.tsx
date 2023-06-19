@@ -8,18 +8,19 @@ import { useState } from 'react'
 import { defineUUID } from '@/utils/crypto'
 import { MaterialType } from '@/types'
 import { ComponentNode } from '@/designer/pane/control/componentNode'
+import { hasOwn } from '@cc-heart/utils'
 function WorkBench() {
-  const [schema, setSchema] = useState({} as Record<string, MaterialType>)
+  const [schema, setSchema] = useState<Array<MaterialType>>([])
   const [overlayData, setOverlayData] = useState({} as Partial<MaterialType>)
   function handleOnDragEnd(over: DragEndEvent) {
     if (over?.over?.id === 'viewPane') {
-      const cur = over.active.data.current
+      const cur = over.active.data.current as MaterialType
+      if (!cur || hasOwn(cur, 'sortable')) return
       let uuid = defineUUID()
       while (Reflect.get(schema, uuid)) {
         uuid = defineUUID()
       }
-      Reflect.set(schema, uuid, cur)
-      setSchema({ ...schema })
+      setSchema([...schema, { ...cur, uuid }])
     }
   }
   const handleOnDragStart = (over: DragStartEvent) => {
@@ -36,7 +37,7 @@ function WorkBench() {
       <DndContext onDragEnd={handleOnDragEnd} onDragStart={handleOnDragStart}>
         <div className="flex-1 flex w-full">
           <ControlPane />
-          <ViewPane schema={schema} />
+          <ViewPane schema={schema} setSchema={setSchema} />
           <AttributePane />
         </div>
         <DragOverlay>

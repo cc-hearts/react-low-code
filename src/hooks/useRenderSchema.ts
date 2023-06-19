@@ -1,19 +1,13 @@
 import type { MaterialType, RenderSchema } from '@/types'
 import Components from '@/components'
 
-export function useRenderSchema(
-  schema: Record<string, MaterialType>
-): RenderSchema[] {
-  return Object.entries(schema).map(([key, schema]) => {
-    const { type } = schema
-    const Component = Reflect.get(Components, type) as React.FC
+export function useRenderSchema(schema: Array<MaterialType>): RenderSchema[] {
+  return Object.values(schema).map((schema) => {
+    const { type, uuid, attributes } = schema
     return {
-      Component,
-      attribute: Reflect.get(
-        schema as MaterialType,
-        'attributes'
-      ) as MaterialType['attributes'],
-      uuid: key,
+      Component: Reflect.get(Components, type) as React.FC,
+      attribute: attributes as MaterialType['attributes'],
+      uuid,
     }
   })
 }
