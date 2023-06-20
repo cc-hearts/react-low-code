@@ -1,12 +1,23 @@
 import type { MaterialType, RenderSchema } from '@/types'
 import { Form } from 'antd'
 import { SortableItem } from './drag/sortableItem'
-import { DndContext, DragEndEvent, UniqueIdentifier } from '@dnd-kit/core'
+import {
+  DndContext,
+  DragEndEvent,
+  UniqueIdentifier,
+  closestCenter,
+} from '@dnd-kit/core'
 import {
   SortableContext,
   arrayMove,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
+
+import {
+  restrictToVerticalAxis,
+  restrictToFirstScrollableAncestor,
+} from '@dnd-kit/modifiers'
+
 import { materialTypeTransformMap } from '@/utils/shard'
 import { useRenderSchema } from '@/hooks/useRenderSchema'
 interface IProps {
@@ -32,7 +43,11 @@ function FrameWorkSchema({ schema, setSchema }: IProps) {
   }
 
   return (
-    <DndContext onDragEnd={handleOnDragEnd}>
+    <DndContext
+      onDragEnd={handleOnDragEnd}
+      collisionDetection={closestCenter}
+      modifiers={[restrictToVerticalAxis,restrictToFirstScrollableAncestor]}
+    >
       <SortableContext items={ids} strategy={verticalListSortingStrategy}>
         <Form>
           {renderSchema.map((val) => {

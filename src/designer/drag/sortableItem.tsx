@@ -8,6 +8,8 @@ interface IProps {
 export function SortableItem({ id, children }: IProps) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id })
+
+  console.log('attributes', attributes)
   return (
     <div
       ref={setNodeRef}
